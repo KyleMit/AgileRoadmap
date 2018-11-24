@@ -1,5 +1,16 @@
 # Track Features Over Time
 
+## Dependencies
+
+* NPM
+* [Vue](https://vuejs.org/v2/guide/installation.html#NPM)
+* [Vue Material](https://vuematerial.io/getting-started)
+
+```bash
+npm install vue --save
+npm install vue-material --save;
+```
+
 ## Local Dev
 
 ### Setup
@@ -13,7 +24,7 @@ npm install -g live-server
 ### Run
 
 ```bash
-$ live server
+live-server
 ```
 
 ## Libs
@@ -51,6 +62,11 @@ $ live server
 * [`v-el` directive merged into `ref` attribute in v2](https://vuejs.org/v2/guide/migration.html#v-el-and-v-ref-replaced)
 * [Setting focus of an input element in vue.js](https://stackoverflow.com/q/34941829/1366033)
 * [Vue display unescaped html](https://stackoverflow.com/q/30877491/1366033)
+* [Register single-file components](https://stackoverflow.com/a/44568550/1366033)
+* [Adjusting height of v-list-tile in Vuetify](https://stackoverflow.com/a/53454019/1366033)
+* [Vuetify - Fixed NavigationDrawer with absolute Footer leaves unnecessary space](https://stackoverflow.com/q/52408935/1366033)
+* [script-indent make me crazy](https://github.com/vuejs/eslint-plugin-vue/issues/362)
+
 
 ### Bootstrap
 
@@ -84,3 +100,15 @@ $ live server
 ### VS Code 
 
 * [Visual studio code CSS indentation and formatting](https://stackoverflow.com/q/37739375/1366033)
+* [How do you change the formatting options in Visual Studio Code?](https://github.com/Microsoft/vscode/issues/1533)
+
+### NPM
+
+* [What is the --save option for npm install?](https://stackoverflow.com/q/19578796/1366033)
+* [Node .gitignore](https://github.com/github/gitignore/blob/master/Node.gitignore)
+* [Everything You Wanted To Know About package-lock.json](https://medium.com/coinmonks/everything-you-wanted-to-know-about-package-lock-json-b81911aa8ab8)
+
+
+### EsLint
+
+* [Rules - Quotes](http://eslint.org/docs/rules/quotes)
