@@ -1,59 +1,60 @@
 <template>
-  <div id="app">
-    <header>
-      <span>Vue.js PWA</span>
-    </header>
-    <main>
-      <img src="./assets/logo.png" alt="Vue.js PWA">
-      <hello></hello>
-    </main>
-  </div>
+  <v-app>
+
+    <settings-drawer :options="options" :state="state" ></settings-drawer>
+
+    <v-toolbar
+      app
+      fixed
+
+    >
+
+      <v-toolbar-side-icon 
+        @click.stop='state.drawerOpen = !state.drawerOpen'
+        v-if="!state.drawerOpen"
+        ></v-toolbar-side-icon>
+
+      <v-toolbar-title v-text='title'></v-toolbar-title>
+
+    </v-toolbar>
+
+
+    <v-content>
+      <roadmap :options="options"></roadmap>
+      
+    </v-content>
+    
+    <v-footer color="indigo" class="justify-center" app dark inset>
+      <span>KyleMit &copy; 2017</span>
+    </v-footer>
+
+  
+  </v-app>
 </template>
 
 <script>
-import Hello from './components/Hello'
 
 export default {
-  name: 'app',
-  components: {
-    Hello
-  }
+  data () {
+    return {
+      title: 'Agile Roadmap',
+      state: {
+        drawerOpen: false,
+        velocityOpen: true
+      },
+      options: {
+        shirtSizes: ['XS', 'SM', 'MD', 'LG', 'XL'],
+        velocities: [
+          { value: 1, shirt: 'XS', sprints: 0.5, width: '10rem' },
+          { value: 2, shirt: 'SM', sprints: 1, width: '13rem' },
+          { value: 3, shirt: 'MD', sprints: 2, width: '16rem' },
+          { value: 4, shirt: 'LG', sprints: 3, width: '19rem' },
+          { value: 5, shirt: 'XL', sprints: 4, width: '21rem' }
+        ],
+        sizeCardWidth: true
+      }
+    }
+  },
+  name: 'App'
 }
 </script>
-
-<style>
-body {
-  margin: 0;
-}
-
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-}
-
-main {
-  text-align: center;
-  margin-top: 40px;
-}
-
-header {
-  margin: 0;
-  height: 56px;
-  padding: 0 16px 0 24px;
-  background-color: #35495E;
-  color: #ffffff;
-}
-
-header span {
-  display: block;
-  position: relative;
-  font-size: 20px;
-  line-height: 1;
-  letter-spacing: .02em;
-  font-weight: 400;
-  box-sizing: border-box;
-  padding-top: 16px;
-}
-</style>

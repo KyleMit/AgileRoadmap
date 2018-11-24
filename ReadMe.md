@@ -1,6 +1,6 @@
 # Agile Roadmap
 
-> Track high level feature size and time estimates using t-shirt sizing, coupled to your teams current velocity
+> Track high level features with size and time estimates using t-shirt sizing, coupled to your teams current velocity
 
 ## Create Project - Vuetify PWA Template
 
@@ -14,7 +14,10 @@
 $ npm install -g vue-cli
 
 # create project from template
-$ vue init pwa my-project
+$ vue init pwa roadmap
+
+# add vuetify
+$ npm install vuetify --save
 ```
 
 ## Build Setup

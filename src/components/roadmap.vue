@@ -1,0 +1,224 @@
+<template>
+  <v-container fluid>
+    <v-slide-y-transition mode="out-in">
+      <!-- Columns, move left to right -->
+      <v-layout align-start justify-start row grid-list-4
+        >
+        
+        <v-flex v-for="grp in roadmap" shrink
+        v-bind:key="grp.groupName">
+
+
+
+          <!-- all the child items -->
+          <v-layout align-start justify-start column fill-height>
+
+            <!-- title card -->
+            <v-card width="200" class="ma-1" dark flat color="purple darken-1">
+
+              <v-card-title primary-title class="pa-3">
+                <div>
+                  <h3 class="ma-0 ">{{grp.groupName}}</h3>
+                  <h5 class="">
+                      {{groupSprints(grp)}} sprints
+                      ({{sprintTime(groupSprints(grp))}})
+                      <!-- {{sprintTime(groupSprintsRemaining(grp))}} remaining -->
+                  </h5>
+                </div>
+              </v-card-title>
+
+              <v-card-text>
+
+              </v-card-text>
+
+            </v-card>
+
+            <!-- child cards -->
+            <v-card v-for="ft in grp.features" width="200" class="ma-1" hover
+                    v-bind:key="ft.name">
+
+            <v-card-title primary-title class="pa-3">
+              <div>
+                <!-- <v-textarea
+                  solo
+                  auto-grow="true"
+                  v-model="ft.name"
+                ></v-textarea> -->
+                <h5 class="headline mb-0 pa-1 reveal-input-hover" contenteditable="true" 
+                    v-html="ft.name" v-focus="mounted"
+                    placeholder="New Feature"
+                    v-on:blur="updateFeatureName(ft, $event)"
+                    ref="input"></h5>
+              </div>
+            </v-card-title>
+
+            <v-card-actions>
+                 <v-rating
+                    v-model="ft.size"
+                    :empty-icon="'far fa-tshirt'"
+                    :full-icon="'fas fa-tshirt'"
+                    hover
+                    dense
+                    color="indigo darken-2"
+                    background-color="grey lighten-1"
+                  ></v-rating>
+              <!-- <v-btn icon>
+                <v-icon>favorite</v-icon>
+              </v-btn>
+              <v-spacer></v-spacer>
+              <v-btn icon>
+                <v-icon>delete</v-icon>
+              </v-btn> -->
+            </v-card-actions>
+
+          </v-card>
+
+          <v-tooltip right>
+            <v-btn  
+              color="pink"
+              slot="activator"
+              fab
+              dark
+              small
+              @click="addFeature(grp)"
+              >
+              <v-icon>add</v-icon>
+            </v-btn>
+            <span>Add Feature</span>
+          </v-tooltip>
+        
+
+          </v-layout>
+           
+        
+          
+        </v-flex>
+
+        <v-tooltip right>
+          <v-btn  
+            color="pink"
+            slot="activator"
+            fab
+            dark
+            small
+            @click="addGroup()"
+            >
+            <v-icon>add</v-icon>
+          </v-btn>
+          <span>Add Group</span>
+        </v-tooltip>
+
+          
+      </v-layout>
+
+      
+    </v-slide-y-transition>
+  </v-container>
+</template>
+
+
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+[contenteditable][placeholder]:empty::before {
+    content: attr(placeholder);
+    color: #555; 
+}
+.reveal-input-hover {
+  border: 1px solid transparent;
+}
+.reveal-input-hover:hover {
+  border: 1px solid #d0d0d0;
+  box-shadow: 1px 1px 1px #d0d0d0b8;
+}
+
+/* [contenteditable][placeholder]:empty:focus::before {
+    content: "";
+} */
+</style>
+
+<script>
+export default {
+  data () {
+    return {
+      roadmap: [
+        {
+          groupName: "R1",
+          features: [
+            { name: "Infrastructure", size: 2, completed: false },
+            { name: "User Accounts", size: 2, completed: false },
+            { name: "Permissions", size: 2, completed: false },
+            { name: "User Profile", size: 2, completed: false },
+            { name: "Agency Profile", size: 2, completed: false }
+          ]
+        },
+        {
+          groupName: "Process",
+          features: [
+            { name: "Referral", size: 2, completed: false },
+            { name: "Intake", size: 2, completed: false }
+          ]
+        },
+        {
+          groupName: "Client",
+          features: [
+            { name: "Client Profile", size: 2, completed: false },
+            { name: "Consents", size: 2, completed: false },
+            { name: "Resources", size: 2, completed: false },
+            { name: "Health & Well Being", size: 2, completed: false },
+            { name: "Screenings", size: 2, completed: false },
+            { name: "Post Partum", size: 2, completed: false },
+            { name: "Financials", size: 2, completed: false },
+            { name: "Education", size: 2, completed: false },
+            { name: "Insurance", size: 2, completed: false }
+          ]
+        }
+      ],
+      mounted: false
+    }
+  },
+  props: ["options"],
+  name: "roadmap",
+  methods: {
+    updateFeatureName: function (ft, $event) {
+      ft.name = event.target.innerHTML.trim()
+    },
+
+    getVelocity: function (shirtSize) {
+      var v = this.options.velocities.find(function (v) {
+        return v.value === shirtSize
+      })
+      return v
+    },
+
+    groupSprints: function (group) {
+      var self = this
+      var points = group.features.map(function (ft) {
+        return +self.getVelocity(ft.size).sprints
+      })
+      var sum = points.reduce(function (acc, val) {
+        return acc + val
+      }, 0)
+
+      return sum
+    },
+
+    sprintTime: function (sprints) {
+      return Math.round(sprints * 3) + " wks"
+    },
+
+    addFeature: function (grp) {
+      grp.features.push({ name: "", size: 2, completed: false })
+    },
+
+    addGroup: function () {
+      this.roadmap.push({ groupName: "", features: [] })
+    }
+
+  },
+
+  mounted: function () {
+    this.mounted = true
+  }
+}
+</script>
