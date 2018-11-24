@@ -1,39 +1,47 @@
-# Track Features Over Time
+# Agile Roadmap
+
+> Track high level feature size and time estimates using t-shirt sizing, coupled to your teams current velocity
+
+## Create Project - Vuetify PWA Template
+
+* [Vuetify Getting Started](https://vuetifyjs.com/en/getting-started/quick-start#new-applications)
+* [Vuetify PWA Template](https://github.com/vuejs-templates/pwa/tree/master) (built on top of [Webpack Template](http://vuejs-templates.github.io/webpack/))
+* [Docs for vue-loader](http://vuejs.github.io/vue-loader).
+* [Vue CLI](https://cli.vuejs.org/guide/installation.html)
+
+```bash
+# install vue-cli globally
+$ npm install -g vue-cli
+
+# create project from template
+$ vue init pwa my-project
+```
+
+## Build Setup
+
+``` bash
+# install dependencies
+npm install
+
+# serve with hot reload at localhost:8080
+npm run dev
+
+# build for production with minification
+npm run build
+
+# build for production and view the bundle analyzer report
+npm run build --report
+```
 
 ## Dependencies
-
-* NPM
-* [Vue](https://vuejs.org/v2/guide/installation.html#NPM)
-* [Vue Material](https://vuematerial.io/getting-started)
-
-```bash
-npm install vue --save
-npm install vue-material --save;
-```
-
-## Local Dev
-
-### Setup
-
-Use [live-server](https://www.npmjs.com/package/live-server) from npm
-
-```bash
-npm install -g live-server
-```
-
-### Run
-
-```bash
-live-server
-```
-
-## Libs
 
 * [Font Awesome v 5.5](https://fontawesome.com/)
 * [Bootstrap v4](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
 
-## Reources
 
+-----
+
+## Reources
 
 ### Vue
 
@@ -63,10 +71,15 @@ live-server
 * [Setting focus of an input element in vue.js](https://stackoverflow.com/q/34941829/1366033)
 * [Vue display unescaped html](https://stackoverflow.com/q/30877491/1366033)
 * [Register single-file components](https://stackoverflow.com/a/44568550/1366033)
+* [Focus input of freshly added item](https://stackoverflow.com/a/39537367/1366033)
+* [type check failed for prop "disabled". Expected Boolean, got String](https://github.com/bootstrap-vue/bootstrap-vue/issues/2072)
+
+### Vuetify
 * [Adjusting height of v-list-tile in Vuetify](https://stackoverflow.com/a/53454019/1366033)
 * [Vuetify - Fixed NavigationDrawer with absolute Footer leaves unnecessary space](https://stackoverflow.com/q/52408935/1366033)
 * [script-indent make me crazy](https://github.com/vuejs/eslint-plugin-vue/issues/362)
-
+* [Add "shrink" and "grow" props to v-flex](https://github.com/vuetifyjs/vuetify/issues/1894)
+* [Tooltip can open when focus by default](https://github.com/vuetifyjs/vuetify/issues/4112)
 
 ### Bootstrap
 
@@ -77,6 +90,10 @@ live-server
 * [BS - Flex](https://getbootstrap.com/docs/4.1/utilities/flex/)
 * [BS - Cards](https://getbootstrap.com/docs/4.1/components/card/)
 * [BS - Spacing](https://getbootstrap.com/docs/4.1/utilities/spacing/)
+
+### HTML
+
+* [Placeholder for contenteditable div](https://stackoverflow.com/a/24827239/1366033)
 
 ### CSS
 
@@ -91,6 +108,8 @@ live-server
 * [How can I update window.location.hash without jumping the document?](https://stackoverflow.com/q/3870057/1366033)
 * [What is the difference between decodeURIComponent and decodeURI?](https://stackoverflow.com/q/747641/1366033)
 * [Delete first character of a string in Javascript](https://stackoverflow.com/q/4564414/1366033)
+* [Selecting all text in HTML text input when clicked](https://stackoverflow.com/q/4067469/1366033)
+* [Set focus on div contenteditable element](https://stackoverflow.com/q/2388164/1366033)
 
 ### LoDash
 
@@ -111,4 +130,5 @@ live-server
 
 ### EsLint
 
+* ["Better Code Quality with ESLint" Pluralsight Course Intro](https://www.youtube.com/watch?v=hppJw2REb8g)
 * [Rules - Quotes](http://eslint.org/docs/rules/quotes)
