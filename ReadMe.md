@@ -135,3 +135,8 @@ npm run build --report
 
 * ["Better Code Quality with ESLint" Pluralsight Course Intro](https://www.youtube.com/watch?v=hppJw2REb8g)
 * [Rules - Quotes](http://eslint.org/docs/rules/quotes)
+
+### Github
+
+* [Deploying a subfolder to GitHub Pages](https://gist.github.com/cobyism/4730490)
+* [host github pages from /dist folder in master branch](https://stackoverflow.com/a/53463860/1366033)
