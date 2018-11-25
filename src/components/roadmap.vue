@@ -1,5 +1,8 @@
 <template>
-  <v-container fluid>
+  <!-- contents may extend past page - allow scroll on desktop 
+       and prevent swipe with nav drawer open on moible 
+      by adding horizontal scrollbar to app -->
+  <v-container fluid style="overflow-x:auto;">
     <v-slide-y-transition mode="out-in">
       <!-- Columns, move left to right -->
       <v-layout align-start justify-start row grid-list-4
@@ -14,7 +17,7 @@
           <v-layout align-start justify-start column fill-height>
 
             <!-- title card -->
-            <v-card width="200" class="ma-1" dark flat color="purple darken-1">
+            <v-card width="200" class="ma-1" flat color="amber lighten-4">
 
               <v-card-title primary-title class="pa-3">
                 <div>
@@ -39,11 +42,6 @@
 
             <v-card-title primary-title class="pa-3">
               <div>
-                <!-- <v-textarea
-                  solo
-                  auto-grow="true"
-                  v-model="ft.name"
-                ></v-textarea> -->
                 <h5 class="headline mb-0 pa-1 reveal-input-hover" contenteditable="true" 
                     v-html="ft.name" v-focus="mounted"
                     placeholder="New Feature"
@@ -59,7 +57,7 @@
                     :full-icon="'fas fa-tshirt'"
                     hover
                     dense
-                    color="indigo darken-2"
+                    color="green darken-2"
                     background-color="grey lighten-1"
                   ></v-rating>
               <!-- <v-btn icon>
@@ -73,16 +71,16 @@
 
           </v-card>
 
-          <v-tooltip right>
+          <v-tooltip right color="green darken-2">
             <v-btn  
-              color="pink"
+              color="green"
               slot="activator"
               fab
               dark
               small
               @click="addFeature(grp)"
               >
-              <v-icon>add</v-icon>
+              <v-icon>fa fa-plus</v-icon>
             </v-btn>
             <span>Add Feature</span>
           </v-tooltip>
@@ -94,16 +92,16 @@
           
         </v-flex>
 
-        <v-tooltip right>
+        <v-tooltip right color="green darken-2">
           <v-btn  
-            color="pink"
+            color="green "
             slot="activator"
             fab
             dark
             small
             @click="addGroup()"
             >
-            <v-icon>add</v-icon>
+            <v-icon>fa fa-plus</v-icon>
           </v-btn>
           <span>Add Group</span>
         </v-tooltip>

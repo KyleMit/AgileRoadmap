@@ -24,7 +24,7 @@
       
     </v-content>
     
-    <v-footer color="indigo" class="justify-center" app dark inset>
+    <v-footer color="green darken-2" class="justify-center" app dark inset>
       <span>KyleMit &copy; 2017</span>
     </v-footer>
 

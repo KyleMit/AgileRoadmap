@@ -38,13 +38,25 @@ npm run build --report
 
 ## Dependencies
 
-* [Font Awesome v 5.5](https://fontawesome.com/)
-* [Bootstrap v4](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
+* [Vuetify](https://vuetifyjs.com/en/)
+* [Font Awesome Pro v 5.5](https://fontawesome.com/)
+* [Roboto](https://fonts.google.com/specimen/Roboto)
+* [Material Icons](https://material.io/tools/icons/?style=baseline)
+* [gh-pages](https://github.com/tschaub/gh-pages)
 
+```bash
+npm install vuetify                      --save
+npm install @fortawesome/fontawesome-pro --save
+npm install typeface-roboto              --save
+npm install material-icons               --save
+npm install gh-pages                     --save-dev
+```
 
 -----
 
-## Reources
+# Reources
+
+## Framwork
 
 ### Vue
 
@@ -78,6 +90,7 @@ npm run build --report
 * [type check failed for prop "disabled". Expected Boolean, got String](https://github.com/bootstrap-vue/bootstrap-vue/issues/2072)
 
 ### Vuetify
+
 * [Adjusting height of v-list-tile in Vuetify](https://stackoverflow.com/a/53454019/1366033)
 * [Vuetify - Fixed NavigationDrawer with absolute Footer leaves unnecessary space](https://stackoverflow.com/q/52408935/1366033)
 * [script-indent make me crazy](https://github.com/vuejs/eslint-plugin-vue/issues/362)
@@ -86,21 +99,24 @@ npm run build --report
 
 ### Bootstrap
 
-#### Docs
-
 * [BS - Colors](https://getbootstrap.com/docs/4.0/utilities/colors/)
 * [BS - Checkboxes](https://getbootstrap.com/docs/4.0/components/forms/#checkboxes-and-radios)
 * [BS - Flex](https://getbootstrap.com/docs/4.1/utilities/flex/)
 * [BS - Cards](https://getbootstrap.com/docs/4.1/components/card/)
 * [BS - Spacing](https://getbootstrap.com/docs/4.1/utilities/spacing/)
 
-### HTML
+### LoDash
+
+* [LoDash - Sum](https://lodash.com/docs/4.17.11#sum)
+
+
+## Web
+
+## HTML
 
 * [Placeholder for contenteditable div](https://stackoverflow.com/a/24827239/1366033)
+* [disable horizontal scroll on mobile web](https://stackoverflow.com/a/36380425/1366033)
 
-### CSS
-
-* [Outline effect to text](https://stackoverflow.com/q/4919076/1366033)
 
 ### Javascript
 
@@ -114,22 +130,24 @@ npm run build --report
 * [Selecting all text in HTML text input when clicked](https://stackoverflow.com/q/4067469/1366033)
 * [Set focus on div contenteditable element](https://stackoverflow.com/q/2388164/1366033)
 
-### LoDash
+### CSS
 
-* [LoDash - Sum](https://lodash.com/docs/4.17.11#sum)
+* [Outline effect to text](https://stackoverflow.com/q/4919076/1366033)
 
+## Tooling
 
 ### VS Code 
 
 * [Visual studio code CSS indentation and formatting](https://stackoverflow.com/q/37739375/1366033)
 * [How do you change the formatting options in Visual Studio Code?](https://github.com/Microsoft/vscode/issues/1533)
+* [File filter on explorer](https://github.com/Microsoft/vscode/issues/36206)
 
 ### NPM
 
 * [What is the --save option for npm install?](https://stackoverflow.com/q/19578796/1366033)
 * [Node .gitignore](https://github.com/github/gitignore/blob/master/Node.gitignore)
 * [Everything You Wanted To Know About package-lock.json](https://medium.com/coinmonks/everything-you-wanted-to-know-about-package-lock-json-b81911aa8ab8)
-
+* [npm config files](https://docs.npmjs.com/files/npmrc)
 
 ### EsLint
 
@@ -140,3 +158,8 @@ npm run build --report
 
 * [Deploying a subfolder to GitHub Pages](https://gist.github.com/cobyism/4730490)
 * [host github pages from /dist folder in master branch](https://stackoverflow.com/a/53463860/1366033)
+
+### Fonts
+
+* [Using a Package Manager](https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers)
+* [Downloading a Google font and setting up an offline site that uses it](https://stackoverflow.com/a/53470702/1366033)
