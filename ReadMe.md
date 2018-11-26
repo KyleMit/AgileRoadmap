@@ -52,6 +52,10 @@ npm install material-icons               --save
 npm install gh-pages                     --save-dev
 ```
 
+## Reccomended Tools
+
+* [**Vetur - VS Code Extension**](https://github.com/vuejs/vetur) - <sup>[Store](https://marketplace.visualstudio.com/items?itemName=octref.vetur)</sup>
+* [**Vue.js Devtools - Chrome Extension**](https://github.com/vuejs/vue-devtools)  - <sup>[Store](https://chrome.google.com/webstore/detail/vuejs-devtools/ljjemllljcmogpfapbkkighbhhppjdbg)</sup>
 -----
 
 # Reources
@@ -141,6 +145,7 @@ npm install gh-pages                     --save-dev
 * [Visual studio code CSS indentation and formatting](https://stackoverflow.com/q/37739375/1366033)
 * [How do you change the formatting options in Visual Studio Code?](https://github.com/Microsoft/vscode/issues/1533)
 * [File filter on explorer](https://github.com/Microsoft/vscode/issues/36206)
+* [Extensions - Workspace recommended extensions](https://code.visualstudio.com/docs/editor/extension-gallery#_workspace-recommended-extensions)
 
 ### NPM
 
@@ -158,6 +163,9 @@ npm install gh-pages                     --save-dev
 
 * [Deploying a subfolder to GitHub Pages](https://gist.github.com/cobyism/4730490)
 * [host github pages from /dist folder in master branch](https://stackoverflow.com/a/53463860/1366033)
+* [Project Boards](https://help.github.com/articles/about-project-boards/)
+* [Configuring automation for project boards](https://help.github.com/articles/configuring-automation-for-project-boards/)
+* [Archiving cards on a project board](https://help.github.com/articles/archiving-cards-on-a-project-board/)
 
 ### Fonts
 
