@@ -20,12 +20,32 @@
 
 
     <v-content>
-      <roadmap :options="options"></roadmap>
+      <roadmap :options="options"></roadmap> 
+
+<!--
+      <v-hover>
+    <v-card
+      slot-scope="{ hover }"
+      :class="`elevation-${hover ? 12 : 2}`"
+      class="mx-auto"
+      width="344"
+    >
       
+      <v-card-title>
+        <div v-if="hover">
+          <span class="headline">Cafe Badilico</span>
+          
+        </div>
+     
+      </v-card-title>
+    </v-card>
+  </v-hover>
+-->
+
     </v-content>
     
     <v-footer color="green darken-2" class="justify-center" app dark inset>
-      <span>KyleMit &copy; 2017</span>
+      <span>KyleMit &copy; 2018</span>
     </v-footer>
 
   
