@@ -8,8 +8,11 @@
       <v-layout align-start justify-start row grid-list-4
         >
         
-        <v-flex v-for="grp in roadmap" shrink
-        v-bind:key="grp.groupName">
+
+        <!-- Group Column -->
+        <v-flex v-for="grp in roadmap" 
+                v-bind:key="grp.groupName"
+                shrink >
 
 
 
@@ -19,60 +22,96 @@
             <!-- title card -->
             <v-card width="200" class="ma-1" flat color="amber lighten-4">
 
-              <v-card-title primary-title class="pa-3">
+              <v-card-title primary-title class="pa-3 d-flex justify-center align-center ">
                 <div>
-                  <h3 class="ma-0 ">{{grp.groupName}}</h3>
-                  <h5 class="">
+                  <div class="display-1 ma-0 pa-1 reveal-input-hover" 
+                        contenteditable="true" 
+                        placeholder="New Feature"
+                        v-focus="mounted"
+                        v-on:blur="updateGroupName(grp, $event)"
+                        v-html="grp.groupName">
+                  </div>
+                  <div class="subheading pa-1 grey--text text--darken-2 ">
                       {{groupSprints(grp)}} sprints
                       ({{sprintTime(groupSprints(grp))}})
                       <!-- {{sprintTime(groupSprintsRemaining(grp))}} remaining -->
-                  </h5>
+                  </div>
                 </div>
               </v-card-title>
-
-              <v-card-text>
-
-              </v-card-text>
 
             </v-card>
 
             <!-- child cards -->
-            <v-card v-for="ft in grp.features" width="200" class="ma-1" hover
-                    v-bind:key="ft.name">
+            <v-hover v-for="(ft, ft_i) in grp.features" v-bind:key="ft.name">
 
-            <v-card-title primary-title class="pa-3">
-              <div>
-                <h5 class="headline mb-0 pa-1 reveal-input-hover" contenteditable="true" 
-                    v-html="ft.name" v-focus="mounted"
-                    placeholder="New Feature"
-                    v-on:blur="updateFeatureName(ft, $event)"
-                    ref="input"></h5>
-              </div>
-            </v-card-title>
+              
+              <v-card 
+                slot-scope="{ hover }"
+                      width="200"
+                      class="ma-1"
+                      hover
+                
+                      
+                      >
 
-            <v-card-actions>
-                 <v-rating
-                    v-model="ft.size"
-                    :empty-icon="'far fa-tshirt'"
-                    :full-icon="'fas fa-tshirt'"
-                    hover
-                    dense
-                    color="green darken-2"
-                    background-color="grey lighten-1"
-                  ></v-rating>
-              <!-- <v-btn icon>
-                <v-icon>favorite</v-icon>
-              </v-btn>
-              <v-spacer></v-spacer>
-              <v-btn icon>
-                <v-icon>delete</v-icon>
-              </v-btn> -->
-            </v-card-actions>
+              <v-card-title primary-title class="pa-3 d-flex justify-center align-center text--center" >
+                <div class="" >
 
-          </v-card>
 
-          <v-tooltip right color="green darken-2">
-            <v-btn  
+                    <div class="headline ma-0 pa-1 reveal-input-hover" 
+                          contenteditable="true" 
+                          placeholder="New Feature"
+                          v-focus="mounted"
+                          v-on:blur="updateFeatureName(ft, $event)"
+                          v-html="ft.name">
+                    </div>
+
+                </div>
+                
+              </v-card-title>
+
+                <v-tooltip  
+                    right 
+                    color="deep-orange darken-4" 
+                    style="position: absolute;top: -6px;left: -9px;">
+                  <v-btn  v-if="hover"
+                    color="deep-orange darken-3"
+                    slot="activator"
+                    flat
+                    icon
+                    small
+                    @click="removeFeature(grp, ft_i)"
+                  
+                    >
+                    <v-icon style="font-size:1.3rem;">fas fa-trash-alt</v-icon>
+                  </v-btn>
+                  <span>Remove Feature</span>
+                </v-tooltip>
+
+              <!-- <v-card-text>
+
+
+
+              </v-card-text> -->
+
+              <v-card-actions>
+                  <v-rating
+                      v-model="ft.size"
+                      :empty-icon="'far fa-tshirt'"
+                      :full-icon="'fas fa-tshirt'"
+                      hover
+                      dense
+                      color="green darken-2"
+                      background-color="grey lighten-1"
+                    ></v-rating>
+              </v-card-actions>
+
+            </v-card>
+
+          </v-hover>
+
+          <v-tooltip right color="green darken-2" >
+            <v-btn 
               color="green"
               slot="activator"
               fab
@@ -117,7 +156,7 @@
 
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style >
 [contenteditable][placeholder]:empty::before {
     content: attr(placeholder);
     color: #555; 
@@ -129,7 +168,9 @@
   border: 1px solid #d0d0d0;
   box-shadow: 1px 1px 1px #d0d0d0b8;
 }
-
+.text--center {
+  text-align: center;
+}
 /* [contenteditable][placeholder]:empty:focus::before {
     content: "";
 } */
@@ -181,7 +222,9 @@ export default {
     updateFeatureName: function (ft, $event) {
       ft.name = event.target.innerHTML.trim()
     },
-
+    updateGroupName: function (grp, $event) {
+      grp.groupName = event.target.innerHTML.trim()
+    },
     getVelocity: function (shirtSize) {
       var v = this.options.velocities.find(function (v) {
         return v.value === shirtSize
@@ -207,6 +250,9 @@ export default {
 
     addFeature: function (grp) {
       grp.features.push({ name: "", size: 2, completed: false })
+    },
+    removeFeature: function (grp, index) {
+      this.$delete(grp.features, index)
     },
 
     addGroup: function () {
