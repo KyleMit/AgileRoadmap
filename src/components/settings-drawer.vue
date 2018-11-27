@@ -108,9 +108,13 @@
 
       </v-list>
 
-        <!-- <v-footer color="indigo" class="justify-center" app dark>
-          <span>KyleMit &copy; 2017</span>
-        </v-footer> -->
+        <v-footer color="light-green lighten-4"
+                  class="justify-center pl-0"
+                  inset app >
+          <span>
+            <a href="https://stackoverflow.com/users/1366033/kylemit">KyleMit</a>
+            &copy; 2018</span>
+        </v-footer> 
 
     </v-navigation-drawer>
 </template>

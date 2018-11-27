@@ -41,10 +41,6 @@
 
     </v-content>
     
-    <v-footer color="green darken-2" class="justify-center" app dark inset>
-      <span>KyleMit &copy; 2018</span>
-    </v-footer>
-
   
   </v-app>
 </template>
