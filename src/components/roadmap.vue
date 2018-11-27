@@ -167,11 +167,12 @@
     color: #555; 
 }
 .reveal-input-hover {
-  border: 1px solid transparent;
+  border-bottom: 1px solid transparent;
 }
 .reveal-input-hover:hover {
-  border: 1px solid #d0d0d0;
-  box-shadow: 1px 1px 1px #d0d0d0b8;
+  border-bottom: 1px solid #a8a8a8;
+  box-shadow: 0px 0px 1px #d0d0d0b8;
+  cursor: text;
 }
 .text--center {
   text-align: center;
