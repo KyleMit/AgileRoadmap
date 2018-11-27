@@ -138,6 +138,7 @@ npm install gh-pages                     --save-dev
 * [Selecting all text in HTML text input when clicked](https://stackoverflow.com/q/4067469/1366033)
 * [Set focus on div contenteditable element](https://stackoverflow.com/q/2388164/1366033)
 * [Flatten Array of Arrays](https://stackoverflow.com/a/18307218/1366033)
+* [Copying text to clipboard with JavaScript](https://hackernoon.com/copying-text-to-clipboard-with-javascript-df4d4988697f)
 
 ### CSS
 

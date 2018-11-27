@@ -16,25 +16,8 @@
         </v-toolbar>
 
       <v-list >
-        <!--
+
           <v-subheader>Options</v-subheader>
-        -->
-
-          <v-list-tile >
-            <v-list-tile-action>
-              <v-checkbox color="green darken-3"
-                v-model='options.sizeCardWidth'
-              ></v-checkbox>
-            </v-list-tile-action>
-
-            <v-list-tile-content @click.prevent='options.sizeCardWidth = !options.sizeCardWidth'>
-              <v-list-tile-title>Card Width</v-list-tile-title>
-              <v-list-tile-sub-title>Size according to shirt size</v-list-tile-sub-title>
-            </v-list-tile-content>
-          </v-list-tile>
-
-          <!-- <v-divider></v-divider> -->
-
 
           <v-list-group
             v-model="state.velocityOpen"
@@ -106,6 +89,56 @@
 
           </v-list-group> 
 
+
+          <v-list-tile >
+            <v-list-tile-action>
+              <v-checkbox color="green darken-3"
+                v-model='options.sizeCardWidth'
+              ></v-checkbox>
+            </v-list-tile-action>
+
+            <v-list-tile-content @click.prevent='options.sizeCardWidth = !options.sizeCardWidth'>
+              <v-list-tile-title>Card Width</v-list-tile-title>
+              <v-list-tile-sub-title>Size according to shirt size</v-list-tile-sub-title>
+            </v-list-tile-content>
+          </v-list-tile>
+
+          <v-divider></v-divider>
+        
+          <v-subheader>Export / Import</v-subheader>
+        
+
+          <v-list-tile >
+            <v-list-tile-action>
+              <v-icon color="green darken-3">fas fa-share-alt</v-icon>
+            </v-list-tile-action>
+
+            <v-list-tile-content>
+              
+              
+              <v-tooltip 
+                        nudge-bottom="33px"
+                        nudge-right="105px"
+                         v-model="copiedUrl" 
+                         attach="#copy-url-btn">
+                  <span>Url Copied!</span>
+              </v-tooltip>
+
+              <v-btn
+                id="copy-url-btn"
+                block
+                outline
+                color="green darken-4" dark
+                class="white--text mx-0"
+                @click="share"
+              >
+                Share Via URL 
+                <v-icon right dark>fas fa-copy</v-icon>
+              </v-btn>
+
+            </v-list-tile-content>
+          </v-list-tile>
+
       </v-list>
 
         <v-footer color="light-green lighten-4"
@@ -145,7 +178,39 @@ export default {
   props: ['options', 'state'],
   data: function () {
     return {
+      copiedUrl: false
     }
+  },
+  methods: {
+    share: function () {
+      var state = localStorage.getItem("roadmap")
+      var hash = "#" + encodeURIComponent(state)
+
+      if (history.pushState) {
+        history.pushState(null, null, hash)
+      } else {
+        window.location.hash = hash
+      }
+
+      copyToClipboard(window.location)
+
+      // show tooltip
+      this.copiedUrl = true
+      // close on delay
+      setTimeout(function () {
+        this.copiedUrl = false
+      }, 3000)
+    }
+
   }
+}
+
+function copyToClipboard (str) {
+  const el = document.createElement('textarea')
+  el.value = str
+  document.body.appendChild(el)
+  el.select()
+  document.execCommand('copy')
+  document.body.removeChild(el)
 }
 </script>
