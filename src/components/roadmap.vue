@@ -26,7 +26,7 @@
                 <div>
                   <div class="display-1 ma-0 pa-1 reveal-input-hover" 
                         contenteditable="true" 
-                        placeholder="New Feature"
+                        placeholder="Group"
                         v-focus="mounted"
                         v-on:blur="updateGroupName(grp, $event)"
                         v-html="grp.groupName">
