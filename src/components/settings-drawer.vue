@@ -53,11 +53,11 @@
                  
                    <v-flex
                     shrink
-                    style="width: 60px"
+                    style="width: 70px"
                   >
                     <v-text-field
                       v-model="vel.sprints"
-                      class="mt-0 text--center-input"
+                      class="mr-1 ml-0 mt-0 text--center-input"
                       hide-details
                       single-line
                       min="0"

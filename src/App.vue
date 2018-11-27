@@ -24,7 +24,7 @@
       </v-toolbar-title>
 
       <!-- small display -->
-      <div class="subheading pa-1 ml-2 hidden-md-and-up" style="line-height: 1.2;">
+      <div class="subheading pa-0 ml-2 hidden-md-and-up" style="line-height: 1.2;">
         <div class="green--text text--darken-2">
             {{getSprints(completedFeatures, options.velocities) * 3 | shortTimespan}} done
         </div>
@@ -34,7 +34,7 @@
       </div>
 
       <!-- big display -->
-      <div class="subheading pa-o ml-2 hidden-sm-and-down" style="line-height: 1.2;">
+      <div class="subheading pa-1 ml-3 hidden-sm-and-down" style="line-height: 1.2;">
         <div class="green--text text--darken-2">
             {{getSprints(completedFeatures, options.velocities) * 3 | timespan}} completed
         </div>
