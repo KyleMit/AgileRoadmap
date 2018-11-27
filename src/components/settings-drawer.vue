@@ -64,16 +64,41 @@
 
               <v-list-tile-content >
 
-                <v-slider 
-                    v-model="vel.sprints" 
-                    :max="5"
-                    thumb-label
-                    thumb-size="28"
-                    step=".5"
-                    ticks
-                    color="green darken-3"
-                  ></v-slider>
+                <v-layout
+                  row
+                >
+                 
+                   <v-flex
+                    shrink
+                    style="width: 60px"
+                  >
+                    <v-text-field
+                      v-model="vel.sprints"
+                      class="mt-0 text--center-input"
+                      hide-details
+                      single-line
+                      min="0"
+                      max="5"
+                      step=".5"
+                      type="number"
+                    ></v-text-field>
+                  </v-flex>
 
+                  <v-flex>
+                    <v-slider 
+                      v-model="vel.sprints" 
+                      :min="0"
+                      :max="5"
+                      step=".5"
+                      thumb-label
+                      thumb-size="28"
+                      ticks
+                      color="green darken-3"
+                    ></v-slider>
+                  </v-flex>
+
+
+                </v-layout>
 
               </v-list-tile-content>
 
@@ -101,6 +126,9 @@
 .icon-text {
   position: absolute;
   color:white;
+}
+/deep/ .text--center-input input {
+  text-align: center;
 }
 </style>
 

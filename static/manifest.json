@@ -1,6 +1,6 @@
 {
-  "name": "roadmap",
-  "short_name": "roadmap",
+  "name": "Agile Roadmap",
+  "short_name": "Agile Roadmap",
   "icons": [
     {
       "src": "/AgileRoadmap/static/img/icons/android-chrome-192x192.png",
@@ -15,6 +15,6 @@
   ],
   "start_url": "/AgileRoadmap/index.html",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#4DBA87"
+  "background_color": "#DCEDC8",
+  "theme_color": "#388e3c"
 }
