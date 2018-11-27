@@ -93,6 +93,7 @@ npm install gh-pages                     --save-dev
 * [Focus input of freshly added item](https://stackoverflow.com/a/39537367/1366033)
 * [type check failed for prop "disabled". Expected Boolean, got String](https://github.com/bootstrap-vue/bootstrap-vue/issues/2072)
 * [Call parent method with component](https://stackoverflow.com/a/53491856/1366033)
+* [Invalid prop: type check failed for prop. Expected Number, got String](https://stackoverflow.com/a/53492345/1366033)
 
 ### Vuetify
 

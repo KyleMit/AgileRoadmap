@@ -24,8 +24,8 @@
       <v-progress-circular
           class="ml-3"
           :value="progress"
-          size="40"
-          width="6"
+          size="38"
+          :width="8"
           color="green darken-1"
       ></v-progress-circular>
 
