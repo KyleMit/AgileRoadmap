@@ -19,40 +19,25 @@
         src="./assets/logo.png" alt="Agile Roadmap"
       ></v-img> -->
 
-      <v-toolbar-title v-text='title' class="ma-0"></v-toolbar-title>
+      <v-toolbar-title v-text='title' class="headline ml-2"></v-toolbar-title>
 
       <v-progress-circular
+          class="ml-3"
           :value="progress"
+          size="40"
+          width="6"
+          color="green darken-1"
       ></v-progress-circular>
 
     </v-toolbar>
 
 
     <v-content>
+
       <roadmap 
       :options="options"
       :roadmap="roadmap"
       ></roadmap> 
-
-<!--
-      <v-hover>
-    <v-card
-      slot-scope="{ hover }"
-      :class="`elevation-${hover ? 12 : 2}`"
-      class="mx-auto"
-      width="344"
-    >
-      
-      <v-card-title>
-        <div v-if="hover">
-          <span class="headline">Cafe Badilico</span>
-          
-        </div>
-     
-      </v-card-title>
-    </v-card>
-  </v-hover>
--->
 
     </v-content>
     
@@ -90,11 +75,11 @@ export default {
         {
           groupName: "R1",
           features: [
-            { name: "Infrastructure", size: 2, completed: false },
-            { name: "User Accounts", size: 2, completed: false },
-            { name: "Permissions", size: 2, completed: false },
-            { name: "User Profile", size: 2, completed: false },
-            { name: "Agency Profile", size: 2, completed: false }
+            { name: "Infrastructure", size: 2, completed: true },
+            { name: "User Accounts", size: 2, completed: true },
+            { name: "Permissions", size: 2, completed: true },
+            { name: "User Profile", size: 2, completed: true },
+            { name: "Agency Profile", size: 2, completed: true }
           ]
         },
         {
@@ -129,8 +114,15 @@ export default {
       }, [])
       return arrays
     },
+    completedFeatures: function () {
+      return this.allFeatures.filter(function (ft) {
+        return ft.completed
+      })
+    },
     progress: function () {
-      return 50 // "this.completedTasks / this.tasks.length * 100"
+      var allPoints = this.getSprints(this.allFeatures, this.options.velocities)
+      var comPoints = this.getSprints(this.completedFeatures, this.options.velocities)
+      return comPoints / allPoints * 100
     },
     remainingTasks: function () {
       return "this.tasks.length - this.completedTasks"
