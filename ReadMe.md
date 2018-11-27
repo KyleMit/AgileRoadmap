@@ -97,6 +97,7 @@ npm install gh-pages                     --save-dev
 * [Invalid prop: type check failed for prop. Expected Number, got String](https://stackoverflow.com/a/53492345/1366033)
 * [How to Target Child Components with Scoped CSS in Vue](https://bambielli.com/til/2018-08-19-how-to-target-child-components-with-scoped-css-in-vue/)
 * [Request: v-text-field with decimal amount #2138](https://github.com/vuetifyjs/vuetify/issues/2138)
+* [Duplicate keys detected](https://github.com/vuejs/vue/issues/7323)
 
 ### Vuetify
 

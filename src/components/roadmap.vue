@@ -8,10 +8,9 @@
       <v-layout align-start justify-start row grid-list-4
         >
         
-
         <!-- Group Column -->
-        <v-flex v-for="grp in roadmap" 
-                v-bind:key="grp.groupName"
+        <v-flex v-for="(grp, grp_i) in roadmap" 
+                v-bind:key="`${grp_i}-${grp.groupName}`"
                 shrink >
 
 
@@ -42,7 +41,8 @@
             </v-card>
 
             <!-- child cards -->
-            <v-hover v-for="(ft, ft_i) in grp.features" v-bind:key="ft.name">
+            <v-hover v-for="(ft, ft_i) in grp.features"
+                     v-bind:key="`${ft_i}-${ft.name}`">
 
               
               <v-card 
