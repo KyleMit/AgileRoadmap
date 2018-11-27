@@ -19,9 +19,22 @@
         src="./assets/logo.png" alt="Agile Roadmap"
       ></v-img> -->
 
-      <v-toolbar-title v-text='title' class="headline ml-2"></v-toolbar-title>
+      <v-toolbar-title class="headline ml-1">
+         <span class="hidden-sm-and-down">Agile</span> Roadmap
+      </v-toolbar-title>
 
-      <div class="subheading pa-1 ml-3" style="line-height: 1.2;">
+      <!-- small display -->
+      <div class="subheading pa-1 ml-2 hidden-md-and-up" style="line-height: 1.2;">
+        <div class="green--text text--darken-2">
+            {{getSprints(completedFeatures, options.velocities) * 3 | shortTimespan}} done
+        </div>
+        <div class="grey--text text--darken-2">
+            {{getSprints(remainingFeatures, options.velocities) * 3 | shortTimespan}} left
+        </div>
+      </div>
+
+      <!-- big display -->
+      <div class="subheading pa-o ml-2 hidden-sm-and-down" style="line-height: 1.2;">
         <div class="green--text text--darken-2">
             {{getSprints(completedFeatures, options.velocities) * 3 | timespan}} completed
         </div>
@@ -63,7 +76,7 @@ export default {
     return {
       title: 'Agile Roadmap',
       state: {
-        drawerOpen: true,
+        drawerOpen: false,
         velocityOpen: true
       },
       options: {
@@ -148,6 +161,7 @@ export default {
       deep: true
     }
   },
+
   filters: {
     timespan: function (value) {
       var output = []
@@ -169,6 +183,10 @@ export default {
       }
 
       return output.join(", ")
+    },
+
+    shortTimespan: function (value) {
+      return pluralize(Math.round(+value), "wk")
     }
   },
   methods: {
