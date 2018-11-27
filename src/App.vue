@@ -14,7 +14,16 @@
         v-if="!state.drawerOpen"
         ></v-toolbar-side-icon>
 
-      <v-toolbar-title v-text='title'></v-toolbar-title>
+      <img src="./assets/logo.png" alt="Agile Roadmap" height="40">
+      <!-- <v-img
+        src="./assets/logo.png" alt="Agile Roadmap"
+      ></v-img> -->
+
+      <v-toolbar-title v-text='title' class="ma-0"></v-toolbar-title>
+
+      <v-progress-circular
+          :value="progress"
+      ></v-progress-circular>
 
     </v-toolbar>
 
@@ -58,7 +67,8 @@
 <script>
 
 export default {
-  data () {
+  name: 'App',
+  data: function () {
     return {
       title: 'Agile Roadmap',
       state: {
@@ -111,6 +121,23 @@ export default {
       ]
     }
   },
-  name: 'App'
+  computed: {
+    allFeatures: function () {
+      var arrays = this.roadmap.map(grp => grp.features)
+      arrays = arrays.reduce(function (a, b) {
+        return a.concat(b)
+      }, [])
+      return arrays
+    },
+    progress: function () {
+      return 50 // "this.completedTasks / this.tasks.length * 100"
+    },
+    remainingTasks: function () {
+      return "this.tasks.length - this.completedTasks"
+    }
+  },
+  methods: {
+
+  }
 }
 </script>

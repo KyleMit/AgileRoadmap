@@ -109,11 +109,11 @@
 //   props: ['options', 'state']
 // })
 export default {
-  data () {
+  name: 'settings-drawer',
+  props: ['options', 'state'],
+  data: function () {
     return {
     }
-  },
-  props: ['options', 'state'],
-  name: 'settings-drawer'
+  }
 }
 </script>

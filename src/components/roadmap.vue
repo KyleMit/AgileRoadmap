@@ -32,8 +32,8 @@
                         v-html="grp.groupName">
                   </div>
                   <div class="subheading pa-1 grey--text text--darken-2 ">
-                      {{groupSprints(grp)}} sprints
-                      ({{sprintTime(groupSprints(grp))}})
+                      {{getSprints(grp.features, options.velocities)}} sprints
+                      ({{getSprintTime(getSprints(grp.features, options.velocities))}})
                       <!-- {{sprintTime(groupSprintsRemaining(grp))}} remaining -->
                   </div>
                 </div>
@@ -195,41 +195,19 @@
 
 <script>
 export default {
-  data () {
+  name: "roadmap",
+  props: ["options", "roadmap"],
+  data: function () {
     return {
       mounted: false
     }
   },
-  props: ["options", "roadmap"],
-  name: "roadmap",
   methods: {
     updateFeatureName: function (ft, $event) {
       ft.name = event.target.innerHTML.trim()
     },
     updateGroupName: function (grp, $event) {
       grp.groupName = event.target.innerHTML.trim()
-    },
-    getVelocity: function (shirtSize) {
-      var v = this.options.velocities.find(function (v) {
-        return v.value === shirtSize
-      })
-      return v
-    },
-
-    groupSprints: function (group) {
-      var self = this
-      var points = group.features.map(function (ft) {
-        return +self.getVelocity(ft.size).sprints
-      })
-      var sum = points.reduce(function (acc, val) {
-        return acc + val
-      }, 0)
-
-      return sum
-    },
-
-    sprintTime: function (sprints) {
-      return Math.round(sprints * 3) + " wks"
     },
 
     addFeature: function (grp) {

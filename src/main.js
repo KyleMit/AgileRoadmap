@@ -17,6 +17,33 @@ Vue.component('roadmap', roadmap)
 
 Vue.config.productionTip = false
 
+Vue.mixin({
+  methods: {
+    getVelocity: function (shirtSize, velocities) {
+      var v = velocities.find(function (v) {
+        return v.value === shirtSize
+      })
+      return v
+    },
+
+    getSprints: function (features, velocities) {
+      var self = this
+      var points = features.map(function (ft) {
+        return +self.getVelocity(ft.size, velocities).sprints
+      })
+      var sum = points.reduce(function (acc, val) {
+        return acc + val
+      }, 0)
+
+      return sum
+    },
+
+    getSprintTime: function (sprints) {
+      return Math.round(sprints * 3) + " wks"
+    }
+  }
+})
+
 Vue.directive('focus', {
   bind: function (el, binding) {
     if (binding.value === false) return
@@ -31,7 +58,8 @@ Vue.directive('focus', {
 })
 
 /* eslint-disable no-new */
-new Vue({
+/* eslint-disable no-unused-vars */
+var app = new Vue({
   el: '#app',
   template: '<App/>',
   components: { App }

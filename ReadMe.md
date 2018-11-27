@@ -92,6 +92,7 @@ npm install gh-pages                     --save-dev
 * [Register single-file components](https://stackoverflow.com/a/44568550/1366033)
 * [Focus input of freshly added item](https://stackoverflow.com/a/39537367/1366033)
 * [type check failed for prop "disabled". Expected Boolean, got String](https://github.com/bootstrap-vue/bootstrap-vue/issues/2072)
+* [Call parent method with component](https://stackoverflow.com/a/53491856/1366033)
 
 ### Vuetify
 
@@ -133,6 +134,7 @@ npm install gh-pages                     --save-dev
 * [Delete first character of a string in Javascript](https://stackoverflow.com/q/4564414/1366033)
 * [Selecting all text in HTML text input when clicked](https://stackoverflow.com/q/4067469/1366033)
 * [Set focus on div contenteditable element](https://stackoverflow.com/q/2388164/1366033)
+* [Flatten Array of Arrays](https://stackoverflow.com/a/18307218/1366033)
 
 ### CSS
 
