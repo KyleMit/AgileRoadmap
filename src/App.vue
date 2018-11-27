@@ -128,8 +128,40 @@ export default {
       return "this.tasks.length - this.completedTasks"
     }
   },
+  watch: {
+    $data: {
+      handler: function () {
+        localStorage.setItem("roadmap", JSON.stringify(this.roadmap))
+        localStorage.setItem("options", JSON.stringify(this.options))
+      },
+      deep: true
+    }
+  },
   methods: {
 
+  },
+  mounted: function () {
+    // restore value if we got from url
+    if (window.location.hash) {
+      var hash = window.location.hash.substring(1)
+      var value = decodeURIComponent(hash)
+      localStorage.setItem("roadmap", value)
+
+      // wipe hash so it's prettier
+      if (history.pushState) {
+        history.pushState(null, null, "#")
+      } else {
+        window.location.hash = "#"
+      }
+    }
+    // fetch from local storage
+    var localRoadmap = localStorage.getItem("roadmap")
+    if (localRoadmap) this.roadmap = JSON.parse(localRoadmap)
+
+    var localOptions = localStorage.getItem("options")
+    if (localOptions) this.options = JSON.parse(localOptions)
+
+    console.log("App mounted!")
   }
 }
 </script>
