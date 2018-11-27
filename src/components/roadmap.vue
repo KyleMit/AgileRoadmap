@@ -73,7 +73,9 @@
                 <v-tooltip  
                     right 
                     color="deep-orange darken-4" 
-                    style="position: absolute;top: -6px;left: -9px;">
+                    style="position: absolute;top: -6px;left: -8px;"
+                    nudge-bottom="1px"
+                    nudge-left="6px">
                   <v-btn  v-if="hover"
                     color="deep-orange darken-3"
                     slot="activator"
@@ -81,12 +83,27 @@
                     icon
                     small
                     @click="removeFeature(grp, ft_i)"
-                  
                     >
                     <v-icon style="font-size:1.3rem;">fas fa-trash-alt</v-icon>
                   </v-btn>
                   <span>Remove Feature</span>
                 </v-tooltip>
+
+                <v-tooltip  
+                    left 
+                    color="green darken-2" 
+                    style="position: absolute;top: -20px;right: -9px;"
+                    nudge-top="6px"
+                    nudge-right="6Spx">
+                      <v-checkbox
+                        v-if="hover || ft.completed"
+                        slot="activator"
+                        color="green darken-3"
+                        v-model="ft.completed"
+                      ></v-checkbox>
+                  <span>Mark Complete</span>
+                </v-tooltip>
+
 
               <!-- <v-card-text>
 
