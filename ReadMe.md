@@ -74,6 +74,7 @@ npm install gh-pages                     --save-dev
 * [Vue - Forms](https://vuejs.org/v2/guide/forms.html)
 * [Vue - Class & Style Bindings](https://vuejs.org/v2/guide/class-and-style.html)
 * [Vue - Ref attribute](https://vuejs.org/v2/api/#ref)
+* [Vue - Filters](https://vuejs.org/v2/guide/filters.html)
 
 #### Articles
 

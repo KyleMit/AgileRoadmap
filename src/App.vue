@@ -21,11 +21,21 @@
 
       <v-toolbar-title v-text='title' class="headline ml-2"></v-toolbar-title>
 
+      <div class="subheading pa-1 ml-3" style="line-height: 1.2;">
+        <div class="green--text text--darken-2">
+            {{getSprints(completedFeatures, options.velocities) * 3 | timespan}} completed
+        </div>
+        <div class="grey--text text--darken-2">
+            {{getSprints(remainingFeatures, options.velocities) * 3 | timespan}} remaining
+        </div>
+      </div>
+
       <v-progress-circular
           class="ml-3"
           :value="progress"
           size="38"
           :width="8"
+          :rotate="180"
           color="green darken-1"
       ></v-progress-circular>
 
@@ -53,7 +63,7 @@ export default {
     return {
       title: 'Agile Roadmap',
       state: {
-        drawerOpen: false,
+        drawerOpen: true,
         velocityOpen: true
       },
       options: {
@@ -115,6 +125,11 @@ export default {
         return ft.completed
       })
     },
+    remainingFeatures: function () {
+      return this.allFeatures.filter(function (ft) {
+        return !ft.completed
+      })
+    },
     progress: function () {
       var allPoints = this.getSprints(this.allFeatures, this.options.velocities)
       var comPoints = this.getSprints(this.completedFeatures, this.options.velocities)
@@ -131,6 +146,29 @@ export default {
         localStorage.setItem("options", JSON.stringify(this.options))
       },
       deep: true
+    }
+  },
+  filters: {
+    timespan: function (value) {
+      var output = []
+      var valueInt = Math.round(+value)
+      // get years
+      if (valueInt > 52) {
+        var years = Math.round(valueInt / 52)
+        valueInt = valueInt % 52 // only store remainder
+        output.push(pluralize(years, "year"))
+      }
+      // get months
+      if (valueInt > 4) {
+        var months = Math.round(valueInt / 4)
+        valueInt = valueInt % 4 // only store remainder
+        output.push(pluralize(months, "month"))
+      }
+      if (valueInt > 0) {
+        output.push(pluralize(valueInt, "week"))
+      }
+
+      return output.join(", ")
     }
   },
   methods: {
@@ -158,6 +196,14 @@ export default {
     if (localOptions) this.options = JSON.parse(localOptions)
 
     console.log("App mounted!")
+  }
+}
+
+function pluralize (value, unit) {
+  if (value === 1) {
+    return value + " " + unit
+  } else {
+    return value + " " + unit + "s"
   }
 }
 </script>
