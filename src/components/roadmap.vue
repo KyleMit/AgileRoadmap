@@ -22,7 +22,7 @@
             <!-- title card -->
             <v-card width="200" class="ma-1" flat color="amber lighten-4">
 
-              <v-card-title primary-title class="pa-3 d-flex justify-center align-center ">
+              <v-card-title primary-title class="pa-2 d-flex justify-center align-center ">
                 <div>
                   <div class="display-1 ma-0 pa-1 reveal-input-hover" 
                         contenteditable="true" 
@@ -54,21 +54,15 @@
                       
                       >
 
-              <v-card-title primary-title class="pa-3 d-flex justify-center align-center text--center" >
-                <div class="" >
-
-
-                    <div class="headline ma-0 pa-1 reveal-input-hover" 
-                          contenteditable="true" 
-                          placeholder="New Feature"
-                          v-focus="mounted"
-                          v-on:blur="updateFeatureName(ft, $event)"
-                          v-html="ft.name">
-                    </div>
-
-                </div>
-                
-              </v-card-title>
+                <v-card-title primary-title class="pa-2 d-flex justify-center align-center text--center" >
+                  <div class="headline ma-0 pa-1 reveal-input-hover" 
+                        contenteditable="true" 
+                        placeholder="New Feature"
+                        v-focus="mounted"
+                        v-on:blur="updateFeatureName(ft, $event)"
+                        v-html="ft.name">
+                  </div>
+                </v-card-title>
 
                 <v-tooltip  
                     right 
@@ -77,41 +71,35 @@
                     nudge-bottom="1px"
                     nudge-left="6px">
                   <v-btn  v-if="hover"
-                    color="deep-orange darken-3"
-                    slot="activator"
-                    flat
-                    icon
-                    small
-                    @click="removeFeature(grp, ft_i)"
-                    >
-                    <v-icon style="font-size:1.3rem;">fas fa-trash-alt</v-icon>
+                      color="deep-orange darken-3"
+                      slot="activator"
+                      flat
+                      icon
+                      small
+                      @click="removeFeature(grp, ft_i)"
+                      >
+                      <v-icon style="font-size:1.3rem;">fas fa-trash-alt</v-icon>
                   </v-btn>
                   <span>Remove Feature</span>
                 </v-tooltip>
 
                 <v-tooltip  
-                    left 
-                    color="green darken-2" 
-                    style="position: absolute;top: -20px;right: -9px;"
-                    nudge-top="6px"
-                    nudge-right="6Spx">
-                      <v-checkbox
-                        v-if="hover || ft.completed"
-                        slot="activator"
-                        color="green darken-3"
-                        v-model="ft.completed"
-                      ></v-checkbox>
+                  left 
+                  color="green darken-2" 
+                  style="position: absolute;top: -20px;right: -9px;"
+                  nudge-top="6px"
+                  nudge-right="6Spx">
+                    <v-checkbox
+                      v-if="hover || ft.completed"
+                      slot="activator"
+                      color="green darken-3"
+                      v-model="ft.completed"
+                    ></v-checkbox>
                   <span>Mark Complete</span>
                 </v-tooltip>
 
 
-              <!-- <v-card-text>
-
-
-
-              </v-card-text> -->
-
-              <v-card-actions>
+              <v-card-actions class="pt-0">
                   <v-rating
                       v-model="ft.size"
                       :empty-icon="'far fa-tshirt'"
