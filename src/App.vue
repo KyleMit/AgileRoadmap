@@ -20,7 +20,10 @@
 
 
     <v-content>
-      <roadmap :options="options"></roadmap> 
+      <roadmap 
+      :options="options"
+      :roadmap="roadmap"
+      ></roadmap> 
 
 <!--
       <v-hover>
@@ -72,7 +75,40 @@ export default {
           { value: 5, shirt: 'XL', sprints: 4, width: '21rem' }
         ],
         sizeCardWidth: true
-      }
+      },
+      roadmap: [
+        {
+          groupName: "R1",
+          features: [
+            { name: "Infrastructure", size: 2, completed: false },
+            { name: "User Accounts", size: 2, completed: false },
+            { name: "Permissions", size: 2, completed: false },
+            { name: "User Profile", size: 2, completed: false },
+            { name: "Agency Profile", size: 2, completed: false }
+          ]
+        },
+        {
+          groupName: "Process",
+          features: [
+            { name: "Referral", size: 2, completed: false },
+            { name: "Intake", size: 2, completed: false }
+          ]
+        },
+        {
+          groupName: "Client",
+          features: [
+            { name: "Client Profile", size: 2, completed: false },
+            { name: "Consents", size: 2, completed: false },
+            { name: "Resources", size: 2, completed: false },
+            { name: "Health & Well Being", size: 2, completed: false },
+            { name: "Screenings", size: 2, completed: false },
+            { name: "Post Partum", size: 2, completed: false },
+            { name: "Financials", size: 2, completed: false },
+            { name: "Education", size: 2, completed: false },
+            { name: "Insurance", size: 2, completed: false }
+          ]
+        }
+      ]
     }
   },
   name: 'App'
