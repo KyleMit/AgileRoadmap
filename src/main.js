@@ -29,7 +29,12 @@ Vue.mixin({
     getSprints: function (features, velocities) {
       var self = this
       var points = features.map(function (ft) {
-        return +self.getVelocity(ft.size, velocities).sprints
+        var v = self.getVelocity(ft.size, velocities)
+        if (v === undefined) {
+          console.error("sprints is null")
+          return 0
+        }
+        return +(v.sprints)
       })
       var sum = points.reduce(function (acc, val) {
         return acc + val

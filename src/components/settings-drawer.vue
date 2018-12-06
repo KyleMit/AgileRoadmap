@@ -22,7 +22,7 @@
           <v-list-group
             v-model="state.velocityOpen"
             color="green darken-4"
-            no-action
+            
           >
             <v-list-tile slot="activator">
               <v-list-tile-action>
@@ -119,9 +119,10 @@
               <v-tooltip 
                         nudge-bottom="33px"
                         nudge-right="105px"
-                         v-model="copiedUrl" 
+                         v-model="urlTooltipVisible" 
+                         :color="urlTooltipColor"
                          attach="#copy-url-btn">
-                  <span>Url Copied!</span>
+                  <span>{{urlTooltipText}}</span>
               </v-tooltip>
 
               <v-btn
@@ -133,11 +134,77 @@
                 @click="share"
               >
                 Share Via URL 
-                <v-icon right dark>fas fa-copy</v-icon>
+                <!-- <v-icon right dark>fas fa-copy</v-icon> -->
               </v-btn>
 
             </v-list-tile-content>
           </v-list-tile>
+
+          <v-list-tile >
+            <v-list-tile-action>
+              <v-icon color="green darken-3">fas fa-file-export</v-icon>
+            </v-list-tile-action>
+
+            <v-list-tile-content>
+              
+              <v-btn
+                block
+                outline
+                color="green darken-4" dark
+                class="white--text mx-0"
+                @click="exportFile"
+              >
+                Export File 
+                <!-- <v-icon right dark>fas fa-file-export</v-icon> -->
+              </v-btn>
+
+            </v-list-tile-content>
+          </v-list-tile>
+
+
+          <v-list-tile >
+            <v-list-tile-action>
+              <v-icon color="green darken-3">fas fa-cloud-upload</v-icon>
+            </v-list-tile-action>
+
+            <v-list-tile-content>
+
+               <!-- <v-text-field
+
+                      class="mr-1 ml-0 mt-0 text--center-input"
+                      hide-details
+                      single-line
+                      type="file"
+                    ></v-text-field> -->
+     <!-- <label class="custom-file-upload">
+                  <input type="file" style="display:none;"/>
+                  Custom Upload
+                              <v-icon right dark>fas fa-cloud-upload</v-icon> 
+              </label>
+               -->
+
+                             
+            
+              <v-btn
+                block
+                outline
+                color="green darken-4" dark
+                class="white--text mx-0"
+                
+              >
+                <label class="custom-file-upload">
+                    <input type="file" ref="fileUpload"
+                    @change="importFile($event)"
+                    style="display:none;"
+                     id="file-upload"/>
+                    Import File
+                                <!-- <v-icon right dark>fas fa-cloud-upload</v-icon>  -->
+                </label>
+              </v-btn>
+
+            </v-list-tile-content>
+          </v-list-tile>
+
 
       </v-list>
 
@@ -145,7 +212,10 @@
                   class="justify-center pl-0"
                   inset app >
           <span>
-            <a href="https://stackoverflow.com/users/1366033/kylemit">KyleMit</a>
+            <a href="https://github.com/KyleMit/AgileRoadmap">
+            <i class="fab fa-github"></i>
+              KyleMit
+            </a>
             &copy; 2018</span>
         </v-footer> 
 
@@ -175,10 +245,12 @@
 // })
 export default {
   name: 'settings-drawer',
-  props: ['options', 'state'],
+  props: ['options', 'state', 'roadmap'],
   data: function () {
     return {
-      copiedUrl: false
+      urlTooltipText: "URL Copied!",
+      urlTooltipVisible: false,
+      urlTooltipColor: "green"
     }
   },
   methods: {
@@ -192,14 +264,42 @@ export default {
         window.location.hash = hash
       }
 
-      copyToClipboard(window.location)
+      copyToClipboard(window.location.href)
+
+      // check for max length
+      if (window.location.href.length > 2000) {
+        this.urlTooltipText = "URL length too long"
+        this.urlTooltipColor = "red"
+      } else {
+        this.urlTooltipText = "URL Copied!"
+        this.urlTooltipColor = "green"
+      }
 
       // show tooltip
-      this.copiedUrl = true
+      var self = this
+      self.urlTooltipVisible = true
       // close on delay
       setTimeout(function () {
-        this.copiedUrl = false
-      }, 3000)
+        self.urlTooltipVisible = false
+      }, 2000)
+    },
+
+    exportFile: function () {
+      var jsonString = JSON.stringify(this.roadmap, undefined, 2)
+
+      var link = document.createElement('a')
+      link.download = 'data.json'
+      var blob = new Blob([jsonString], {type: 'text/plain'})
+      link.href = window.URL.createObjectURL(blob)
+      link.click()
+    },
+
+    importFile: function (e) {
+      var self = this
+      parseFile(e, function (obj) {
+        self.$emit('update:roadmap', obj)
+        // self.mutableRoadmap = obj
+      })
     }
 
   }
@@ -212,5 +312,21 @@ function copyToClipboard (str) {
   el.select()
   document.execCommand('copy')
   document.body.removeChild(el)
+}
+
+function parseFile (event, callback) {
+  var reader = new FileReader()
+  var input = event.target
+
+  // add handler
+  reader.onload = function (event) {
+    var obj = JSON.parse(event.target.result)
+    console.log(obj)
+    // clear input
+    input.value = ""
+    callback(obj)
+  }
+
+  reader.readAsText(input.files[0])
 }
 </script>

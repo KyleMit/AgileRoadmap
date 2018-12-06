@@ -1,7 +1,12 @@
 <template>
   <v-app>
 
-    <settings-drawer :options="options" :state="state" ></settings-drawer>
+    <settings-drawer 
+      :options="options" 
+      :state="state" 
+      :roadmap="roadmap" 
+      v-on:update:roadmap="roadmap = $event"
+    ></settings-drawer>
 
     <v-toolbar
       app

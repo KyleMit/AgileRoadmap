@@ -75,6 +75,7 @@ npm install gh-pages                     --save-dev
 * [Vue - Class & Style Bindings](https://vuejs.org/v2/guide/class-and-style.html)
 * [Vue - Ref attribute](https://vuejs.org/v2/api/#ref)
 * [Vue - Filters](https://vuejs.org/v2/guide/filters.html)
+* [Vue - Sync Modifier](https://vuejs.org/v2/guide/components-custom-events.html#sync-Modifier)
 
 #### Articles
 
@@ -98,6 +99,8 @@ npm install gh-pages                     --save-dev
 * [How to Target Child Components with Scoped CSS in Vue](https://bambielli.com/til/2018-08-19-how-to-target-child-components-with-scoped-css-in-vue/)
 * [Request: v-text-field with decimal amount #2138](https://github.com/vuetifyjs/vuetify/issues/2138)
 * [Duplicate keys detected](https://github.com/vuejs/vue/issues/7323)
+* [vue js 'document.getElementById' shorthand](https://stackoverflow.com/q/36970062/1366033)
+* [Vue 2 - Mutating props vue-warn](https://stackoverflow.com/q/39868963/1366033)
 
 ### Vuetify
 
@@ -106,6 +109,8 @@ npm install gh-pages                     --save-dev
 * [script-indent make me crazy](https://github.com/vuejs/eslint-plugin-vue/issues/362)
 * [Add "shrink" and "grow" props to v-flex](https://github.com/vuetifyjs/vuetify/issues/1894)
 * [Tooltip can open when focus by default](https://github.com/vuetifyjs/vuetify/issues/4112)
+* [File Input / Upload](https://stackoverflow.com/q/44989162/1366033)
+
 
 ### Bootstrap
 
@@ -126,7 +131,8 @@ npm install gh-pages                     --save-dev
 
 * [Placeholder for contenteditable div](https://stackoverflow.com/a/24827239/1366033)
 * [disable horizontal scroll on mobile web](https://stackoverflow.com/a/36380425/1366033)
-
+* [What is the maximum length of a URL in different browsers?](https://stackoverflow.com/a/417184/1366033)
+* [Styling an input type=“file” button](https://stackoverflow.com/q/572768/1366033)
 
 ### Javascript
 
@@ -141,6 +147,11 @@ npm install gh-pages                     --save-dev
 * [Set focus on div contenteditable element](https://stackoverflow.com/q/2388164/1366033)
 * [Flatten Array of Arrays](https://stackoverflow.com/a/18307218/1366033)
 * [Copying text to clipboard with JavaScript](https://hackernoon.com/copying-text-to-clipboard-with-javascript-df4d4988697f)
+* [How To Make A Drag-and-Drop File Uploader With Vanilla JavaScript](https://www.smashingmagazine.com/2018/01/drag-drop-file-uploader-vanilla-js/)
+* [Drag and Drop API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API/File_drag_and_drop)
+* [access data of uploaded json file using javascript](https://stackoverflow.com/q/23344776/1366033)
+* [how to reset input type = "file"](https://stackoverflow.com/a/20552042/1366033)
+
 
 ### CSS
 
