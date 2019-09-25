@@ -195,3 +195,7 @@ npm install gh-pages                     --save-dev
 
 * [Using a Package Manager](https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers)
 * [Downloading a Google font and setting up an offline site that uses it](https://stackoverflow.com/a/53470702/1366033)
+
+## WebPack
+
+* [css-loader - removed minimize](https://github.com/vipranarayan14/vtranslit-web/commit/2a21b43b0b73704c648fe0566f4d6fe051d82640)
