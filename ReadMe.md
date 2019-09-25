@@ -2,6 +2,10 @@
 
 > Track high level features with size and time estimates using t-shirt sizing, coupled to your teams current velocity
 
+Available at https://agile-roadmap.netlify.com/
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1cba6a53-bc92-4680-b19e-9a5b1c5d0828/deploy-status)](https://app.netlify.com/sites/agile-roadmap/deploys)
+
 ## Create Project - Vuetify PWA Template
 
 * [Vuetify Getting Started](https://vuetifyjs.com/en/getting-started/quick-start#new-applications)
