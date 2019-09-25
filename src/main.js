@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import Vuetify from 'vuetify'
-import '@fortawesome/fontawesome-pro/css/all.css'
+import '@fortawesome/fontawesome-free/css/all.css'
 import 'typeface-roboto/index.css'
 import 'material-icons/iconfont/material-icons.css'
 import 'vuetify/dist/vuetify.min.css'
