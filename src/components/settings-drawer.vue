@@ -324,7 +324,8 @@ export default {
     },
 
     exportFile: function () {
-      var jsonString = JSON.stringify(this.roadmap, undefined, 2)
+      var obj = { roadmap: this.roadmap, options: this.options }
+      var jsonString = JSON.stringify(obj, undefined, 2)
 
       var link = document.createElement('a')
       link.download = 'data.json'
@@ -336,7 +337,8 @@ export default {
     importFile: function (e) {
       var self = this
       parseFile(e, function (obj) {
-        self.$emit('update:roadmap', obj)
+        self.$emit('update:options', obj.options)
+        self.$emit('update:roadmap', obj.roadmap)
         // self.mutableRoadmap = obj
       })
     }

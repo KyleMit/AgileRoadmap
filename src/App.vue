@@ -6,6 +6,7 @@
       :state="state"
       :roadmap="roadmap"
       v-on:update:roadmap="roadmap = $event"
+      v-on:update:options="options = $event"
     ></settings-drawer>
 
     <v-toolbar
