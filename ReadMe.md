@@ -36,6 +36,33 @@ npm run build
 npm run build --report
 ```
 
+## Font Awesome Pro
+
+This project includes [Font Awesome Pro as an npm dependency](https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers), so a personal key is required during the build step
+
+It should be added to a `.env` file at the project root that looks like this:
+
+```env
+FONTAWESOME_NPM_AUTH_TOKEN=**************
+```
+
+**Debugging**:
+
+The .env file will be [automatically used in the `launch.json`](https://www.freecodecamp.org/news/heres-how-you-can-actually-use-node-environment-variables-8fdf98f53a0a/)
+
+**Terminal**:
+
+In the command line, the key needs to be added locally before running build commands like this
+
+```bash
+$ FONTAWESOME_NPM_AUTH_TOKEN=************** npm run build
+```
+
+**Deployed**:
+
+It's been added to [Netlify's Environment Variables](https://app.netlify.com/sites/agile-roadmap/settings/deploys#environment-variables)
+
+
 ## Dependencies
 
 * [Vuetify](https://vuetifyjs.com/en/)
@@ -159,7 +186,7 @@ npm install gh-pages                     --save-dev
 
 ## Tooling
 
-### VS Code 
+### VS Code
 
 * [Visual studio code CSS indentation and formatting](https://stackoverflow.com/q/37739375/1366033)
 * [How do you change the formatting options in Visual Studio Code?](https://github.com/Microsoft/vscode/issues/1533)
