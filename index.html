@@ -53,5 +53,23 @@
     <!-- Todo: only include in production -->
     <%= htmlWebpackPlugin.options.serviceWorkerLoader %>
     <!-- built files will be auto injected -->
+    <div id="compat">
+        Sorry, Internet Explorer is not currently supported for this project. <br/><br/>
+        IE 11 was released 6 years ago in 2013 and <a href="https://html5test.com/results/desktop.html">doesn't support many HTML5, CSS3, and ES6 standards</a><br/><br/>
+        Please try switching to a modern, <a href="https://www.techopedia.com/definition/31094/evergreen-browser">evergreen</a> browser like Firefox or Chrome
+    </div>
+    <style>
+      #compat {
+        display: none;
+        font-size: 2em;
+        max-width: 40rem;
+        margin: 3rem auto;
+      }
+    </style>
+    <script>
+      if (!!window.MSInputMethodContext && !!document.documentMode) {
+        document.getElementById('compat').style.display = 'block'
+      }
+    </script>
   </body>
 </html>
