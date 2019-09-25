@@ -22,11 +22,11 @@
           <v-list-group
             v-model="state.velocityOpen"
             color="green darken-4"
-            
+
           >
             <v-list-tile slot="activator">
               <v-list-tile-action>
-                <v-icon color="green darken-3">fas fa-tachometer-alt-fast</v-icon>
+                <v-icon color="green darken-3">fas fa-tachometer-alt</v-icon>
               </v-list-tile-action>
 
               <v-list-tile-content>
@@ -35,8 +35,8 @@
               </v-list-tile-content>
             </v-list-tile>
 
-            <v-list-tile 
-              v-for="vel in options.velocities" 
+            <v-list-tile
+              v-for="vel in options.velocities"
               v-bind:key="vel.size" >
 
               <v-list-tile-avatar>
@@ -50,7 +50,7 @@
                 <v-layout
                   row
                 >
-                 
+
                    <v-flex
                     shrink
                     style="width: 70px"
@@ -68,8 +68,8 @@
                   </v-flex>
 
                   <v-flex>
-                    <v-slider 
-                      v-model="vel.sprints" 
+                    <v-slider
+                      v-model="vel.sprints"
                       :min="0"
                       :max="5"
                       step=".5"
@@ -87,7 +87,7 @@
 
             </v-list-tile>
 
-          </v-list-group> 
+          </v-list-group>
 
 
           <v-list-tile >
@@ -104,9 +104,9 @@
           </v-list-tile>
 
           <v-divider></v-divider>
-        
+
           <v-subheader>Export / Import</v-subheader>
-        
+
 
           <v-list-tile >
             <v-list-tile-action>
@@ -114,12 +114,12 @@
             </v-list-tile-action>
 
             <v-list-tile-content>
-              
-              
-              <v-tooltip 
+
+
+              <v-tooltip
                         nudge-bottom="33px"
                         nudge-right="105px"
-                         v-model="urlTooltipVisible" 
+                         v-model="urlTooltipVisible"
                          :color="urlTooltipColor"
                          attach="#copy-url-btn">
                   <span>{{urlTooltipText}}</span>
@@ -133,7 +133,7 @@
                 class="white--text mx-0"
                 @click="share"
               >
-                Share Via URL 
+                Share Via URL
                 <!-- <v-icon right dark>fas fa-copy</v-icon> -->
               </v-btn>
 
@@ -146,7 +146,7 @@
             </v-list-tile-action>
 
             <v-list-tile-content>
-              
+
               <v-btn
                 block
                 outline
@@ -154,7 +154,7 @@
                 class="white--text mx-0"
                 @click="exportFile"
               >
-                Export File 
+                Export File
                 <!-- <v-icon right dark>fas fa-file-export</v-icon> -->
               </v-btn>
 
@@ -164,7 +164,7 @@
 
           <v-list-tile >
             <v-list-tile-action>
-              <v-icon color="green darken-3">fas fa-cloud-upload</v-icon>
+              <v-icon color="green darken-3">fas fa-file-import</v-icon>
             </v-list-tile-action>
 
             <v-list-tile-content>
@@ -179,18 +179,18 @@
      <!-- <label class="custom-file-upload">
                   <input type="file" style="display:none;"/>
                   Custom Upload
-                              <v-icon right dark>fas fa-cloud-upload</v-icon> 
+                              <v-icon right dark>fas fa-cloud-upload</v-icon>
               </label>
                -->
 
-                             
-            
+
+
               <v-btn
                 block
                 outline
                 color="green darken-4" dark
                 class="white--text mx-0"
-                
+
               >
                 <label class="custom-file-upload">
                     <input type="file" ref="fileUpload"
@@ -217,7 +217,7 @@
               KyleMit
             </a>
             &copy; 2018</span>
-        </v-footer> 
+        </v-footer>
 
     </v-navigation-drawer>
 </template>

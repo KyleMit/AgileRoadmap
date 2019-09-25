@@ -1,15 +1,15 @@
 <template>
-  <!-- contents may extend past page - allow scroll on desktop 
-       and prevent swipe with nav drawer open on moible 
+  <!-- contents may extend past page - allow scroll on desktop
+       and prevent swipe with nav drawer open on moible
       by adding horizontal scrollbar to app -->
   <v-container fluid style="overflow-x:auto;">
     <v-slide-y-transition mode="out-in">
       <!-- Columns, move left to right -->
       <v-layout align-start justify-start row grid-list-4
         >
-        
+
         <!-- Group Column -->
-        <v-flex v-for="(grp, grp_i) in roadmap" 
+        <v-flex v-for="(grp, grp_i) in roadmap"
                 v-bind:key="`${grp_i}-${grp.groupName}`"
                 shrink >
 
@@ -23,8 +23,8 @@
 
               <v-card-title primary-title class="pa-2 d-flex justify-center align-center ">
                 <div>
-                  <div class="display-1 ma-0 pa-1 reveal-input-hover" 
-                        contenteditable="true" 
+                  <div class="display-1 ma-0 pa-1 reveal-input-hover"
+                        contenteditable="true"
                         placeholder="Group"
                         v-focus="mounted"
                         v-on:blur="updateGroupName(grp, $event)"
@@ -44,19 +44,19 @@
             <v-hover v-for="(ft, ft_i) in grp.features"
                      v-bind:key="`${ft_i}-${ft.name}`">
 
-              
-              <v-card 
+
+              <v-card
                 slot-scope="{ hover }"
                       width="200"
                       class="ma-1"
                       hover
-                
-                      
+
+
                       >
 
                 <v-card-title primary-title class="pa-2 d-flex justify-center align-center text--center" >
-                  <div class="headline ma-0 pa-1 reveal-input-hover" 
-                        contenteditable="true" 
+                  <div class="headline ma-0 pa-1 reveal-input-hover"
+                        contenteditable="true"
                         placeholder="New Feature"
                         v-focus="mounted"
                         v-on:blur="updateFeatureName(ft, $event)"
@@ -64,9 +64,9 @@
                   </div>
                 </v-card-title>
 
-                <v-tooltip  
-                    right 
-                    color="deep-orange darken-4" 
+                <v-tooltip
+                    right
+                    color="deep-orange darken-4"
                     style="position: absolute;top: -6px;left: -8px;"
                     nudge-bottom="1px"
                     nudge-left="6px">
@@ -83,9 +83,9 @@
                   <span>Remove Feature</span>
                 </v-tooltip>
 
-                <v-tooltip  
-                  left 
-                  color="green darken-2" 
+                <v-tooltip
+                  left
+                  color="green darken-2"
                   style="position: absolute;top: -20px;right: -9px;"
                   nudge-top="6px"
                   nudge-right="6Spx">
@@ -102,7 +102,7 @@
               <v-card-actions class="pt-0">
                   <v-rating
                       v-model="ft.size"
-                      :empty-icon="'far fa-tshirt'"
+                      :empty-icon="'fas fa-tshirt'"
                       :full-icon="'fas fa-tshirt'"
                       hover
                       dense
@@ -116,7 +116,7 @@
           </v-hover>
 
           <v-tooltip right color="green darken-2" >
-            <v-btn 
+            <v-btn
               color="green"
               slot="activator"
               fab
@@ -128,16 +128,16 @@
             </v-btn>
             <span>Add Feature</span>
           </v-tooltip>
-        
+
 
           </v-layout>
-           
-        
-          
+
+
+
         </v-flex>
 
         <v-tooltip right color="green darken-2">
-          <v-btn  
+          <v-btn
             color="green "
             slot="activator"
             fab
@@ -150,10 +150,10 @@
           <span>Add Group</span>
         </v-tooltip>
 
-          
+
       </v-layout>
 
-      
+
     </v-slide-y-transition>
   </v-container>
 </template>
@@ -164,7 +164,7 @@
 <style >
 [contenteditable][placeholder]:empty::before {
     content: attr(placeholder);
-    color: #555; 
+    color: #555;
 }
 .reveal-input-hover {
   border-bottom: 1px solid transparent;
