@@ -32,7 +32,7 @@
                   </div>
                   <div class="subheading pa-1 grey--text text--darken-2 ">
                       {{getSprints(grp.features, options.velocities)}} sprints
-                      ({{getSprintTime(getSprints(grp.features, options.velocities))}})
+                      ({{getSprintTime(getSprints(grp.features, options.velocities), options.sprintLength)}})
                       <!-- {{sprintTime(groupSprintsRemaining(grp))}} remaining -->
                   </div>
                 </div>
@@ -107,7 +107,7 @@
                       hover
                       dense
                       color="green darken-2"
-                      background-color="grey lighten-1"
+                      background-color="grey lighten-3"
                     ></v-rating>
               </v-card-actions>
 
@@ -115,19 +115,41 @@
 
           </v-hover>
 
-          <v-tooltip right color="green darken-2" >
-            <v-btn
-              color="green"
-              slot="activator"
-              fab
-              dark
-              small
-              @click="addFeature(grp)"
-              >
-              <v-icon>fa fa-plus</v-icon>
-            </v-btn>
-            <span>Add Feature</span>
-          </v-tooltip>
+            <v-card
+              class="d-flex flex-row"
+              flat
+              tile
+            >
+
+              <v-tooltip right color="green darken-2" >
+                <v-btn
+                  color="green"
+                  slot="activator"
+                  fab
+                  dark
+                  small
+                  @click="addFeature(grp)"
+                  >
+                  <v-icon>fa fa-plus</v-icon>
+                </v-btn>
+                <span>Add Feature</span>
+              </v-tooltip>
+
+              <v-tooltip right color="deep-orange darken-4" v-if="grp.features.length === 0">
+                <v-btn
+                  color="deep-orange darken-3 "
+                  slot="activator"
+                  fab
+                  dark
+                  small
+                  @click="removeGroup(grp, grp_i)"
+                  >
+                  <v-icon>fa  fa-trash-alt</v-icon>
+                </v-btn>
+                <span>Remove Group</span>
+              </v-tooltip>
+
+            </v-card>
 
 
           </v-layout>
@@ -208,6 +230,10 @@ export default {
 
     addGroup: function () {
       this.roadmap.push({ groupName: "", features: [] })
+    },
+
+    removeGroup: function (grp, index) {
+      this.$delete(this.roadmap, index)
     }
 
   },

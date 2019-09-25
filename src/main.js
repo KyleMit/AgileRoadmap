@@ -43,8 +43,8 @@ Vue.mixin({
       return sum
     },
 
-    getSprintTime: function (sprints) {
-      return Math.round(sprints * 3) + " wks"
+    getSprintTime: function (sprints, sprintLength) {
+      return Math.round(sprints * sprintLength) + " wks"
     }
   }
 })

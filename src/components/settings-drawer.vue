@@ -35,6 +35,58 @@
               </v-list-tile-content>
             </v-list-tile>
 
+            <v-subheader>Sprint Length (# Wks)</v-subheader>
+
+            <v-list-tile>
+
+              <v-list-tile-avatar>
+                <v-icon large color="green darken-2">fas fa-calendar-week</v-icon>
+              </v-list-tile-avatar>
+
+              <v-list-tile-content >
+
+                <v-layout
+                  row
+                >
+
+                   <v-flex
+                    shrink
+                    style="width: 70px"
+                  >
+                    <v-text-field
+                      v-model="options.sprintLength"
+                      class="mr-1 ml-0 mt-0 text--center-input"
+                      hide-details
+                      single-line
+                      min="0"
+                      max="5"
+                      step=".5"
+                      type="number"
+                    ></v-text-field>
+                  </v-flex>
+
+                  <v-flex>
+                    <v-slider
+                      v-model="options.sprintLength"
+                      :min="0"
+                      :max="5"
+                      step=".5"
+                      thumb-label
+                      thumb-size="28"
+                      ticks
+                      color="green darken-3"
+                    ></v-slider>
+                  </v-flex>
+
+
+                </v-layout>
+
+              </v-list-tile-content>
+
+            </v-list-tile>
+
+            <v-subheader>Shirt Size (# Sprints)</v-subheader>
+
             <v-list-tile
               v-for="vel in options.velocities"
               v-bind:key="vel.size" >
@@ -169,22 +221,6 @@
 
             <v-list-tile-content>
 
-               <!-- <v-text-field
-
-                      class="mr-1 ml-0 mt-0 text--center-input"
-                      hide-details
-                      single-line
-                      type="file"
-                    ></v-text-field> -->
-     <!-- <label class="custom-file-upload">
-                  <input type="file" style="display:none;"/>
-                  Custom Upload
-                              <v-icon right dark>fas fa-cloud-upload</v-icon>
-              </label>
-               -->
-
-
-
               <v-btn
                 block
                 outline
@@ -233,6 +269,9 @@
 .icon-text {
   position: absolute;
   color:white;
+}
+.v-list__group__items .v-subheader {
+  display: flex;
 }
 /deep/ .text--center-input input {
   text-align: center;

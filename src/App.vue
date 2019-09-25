@@ -1,10 +1,10 @@
 <template>
   <v-app>
 
-    <settings-drawer 
-      :options="options" 
-      :state="state" 
-      :roadmap="roadmap" 
+    <settings-drawer
+      :options="options"
+      :state="state"
+      :roadmap="roadmap"
       v-on:update:roadmap="roadmap = $event"
     ></settings-drawer>
 
@@ -14,7 +14,7 @@
 
     >
 
-      <v-toolbar-side-icon 
+      <v-toolbar-side-icon
         @click.stop='state.drawerOpen = !state.drawerOpen'
         v-if="!state.drawerOpen"
         ></v-toolbar-side-icon>
@@ -31,20 +31,20 @@
       <!-- small display -->
       <div class="subheading pa-0 ml-2 hidden-md-and-up" style="line-height: 1.2;">
         <div class="green--text text--darken-2">
-            {{getSprints(completedFeatures, options.velocities) * 3 | shortTimespan}} done
+            {{getSprints(completedFeatures, options.velocities) * options.sprintLength | shortTimespan}} done
         </div>
         <div class="grey--text text--darken-2">
-            {{getSprints(remainingFeatures, options.velocities) * 3 | shortTimespan}} left
+            {{getSprints(remainingFeatures, options.velocities) * options.sprintLength | shortTimespan}} left
         </div>
       </div>
 
       <!-- big display -->
       <div class="subheading pa-1 ml-3 hidden-sm-and-down" style="line-height: 1.2;">
         <div class="green--text text--darken-2">
-            {{getSprints(completedFeatures, options.velocities) * 3 | timespan}} completed
+            {{getSprints(completedFeatures, options.velocities) * options.sprintLength | timespan}} completed
         </div>
         <div class="grey--text text--darken-2">
-            {{getSprints(remainingFeatures, options.velocities) * 3 | timespan}} remaining
+            {{getSprints(remainingFeatures, options.velocities) * options.sprintLength | timespan}} remaining
         </div>
       </div>
 
@@ -62,14 +62,14 @@
 
     <v-content>
 
-      <roadmap 
+      <roadmap
       :options="options"
       :roadmap="roadmap"
-      ></roadmap> 
+      ></roadmap>
 
     </v-content>
-    
-  
+
+
   </v-app>
 </template>
 
@@ -85,6 +85,7 @@ export default {
         velocityOpen: true
       },
       options: {
+        sprintLength: 3,
         shirtSizes: ['XS', 'SM', 'MD', 'LG', 'XL'],
         velocities: [
           { value: 1, shirt: 'XS', sprints: 0.5, width: '10rem' },
@@ -171,6 +172,7 @@ export default {
     timespan: function (value) {
       var output = []
       var valueInt = Math.round(+value)
+      if (value === 0) return "Nothing"
       // get years
       if (valueInt > 52) {
         var years = Math.round(valueInt / 52)
