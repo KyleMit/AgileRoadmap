@@ -81,7 +81,7 @@ export default {
     return {
       title: 'Agile Roadmap',
       state: {
-        drawerOpen: false,
+        drawerOpen: true,
         velocityOpen: true
       },
       options: {
